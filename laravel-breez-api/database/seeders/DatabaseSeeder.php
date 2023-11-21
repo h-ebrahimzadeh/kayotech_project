@@ -56,14 +56,16 @@ class DatabaseSeeder extends Seeder
         $user = \App\Models\User::factory()->create([
             'name' => 'ManagerUser',
             'email' => 'manager@example.com',
-            'password' => Hash::make('12345678')
+            'password' => Hash::make('12345678'),
+            'suspend' => false
         ]);
         $user->assignRole($roleAdmin);
 
         $user = \App\Models\User::factory()->create([
             'name' => 'Super-Admin',
             'email' => 'superadmin@example.com',
-            'password' => Hash::make('12345678')
+            'password' => Hash::make('12345678'),
+            'suspend' => false
         ]);
         $user->assignRole($roleSuperAdmin);
     }
