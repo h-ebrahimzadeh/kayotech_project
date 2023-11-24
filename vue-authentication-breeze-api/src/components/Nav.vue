@@ -4,13 +4,14 @@ import { useAuthStore } from "../stores/auth";
 const authStore = useAuthStore();
 </script>
 <template>
+
   <nav class="rounded bg-indigo-900 text-white px-2 py-2.5 sm:px-4">
     <div
       class="container mx-auto flex flex-wrap items-center justify-between"
       bis_skin_checked="1"
     >
-      <a href="https://laraveller.com/" class="flex items-center">
-        Laraveller
+      <a href="#" class="flex items-center">
+        Hamed Ebrahimzdeh
       </a>
       <button
         data-collapse-toggle="navbar-default"
@@ -101,6 +102,23 @@ const authStore = useAuthStore();
             </li>
           </template>
           <template v-else>
+
+            <template v-if="authStore.role[0]=='admin'">
+              <router-link
+                  :to="{ name: 'AdminUsers' }"
+                  class="
+                  block
+                  rounded
+                  py-2
+                  pr-4
+                  pl-3
+                  text-gray-50
+                  hover:bg-gray-700
+                  md:border-0
+                "
+              >admin panel</router-link
+              >
+            </template>
             <button
               @click="authStore.handleLogout"
               class="
@@ -116,6 +134,7 @@ const authStore = useAuthStore();
             >
               Logout
             </button>
+
           </template>
         </ul>
       </div>

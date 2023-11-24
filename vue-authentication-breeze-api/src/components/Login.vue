@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { useAuthStore } from "../stores/auth";
+import { useAuthStore } from "../stores/auth.js";
 
 const authStore = useAuthStore();
 
@@ -9,6 +9,7 @@ const form = ref({
   password: "",
 });
 </script>
+
 <template>
   <section class="bg-[#F4F7FF] py-20 lg:py-[120px]">
     <div class="container mx-auto">
@@ -29,7 +30,7 @@ const form = ref({
               md:px-[60px]
             "
           >
-            <div class="mb-10 text-center md:mb-16">Laraveller</div>
+            <div class="mb-10 text-center md:mb-16">login</div>
             <form @submit.prevent="authStore.handleLogin(form)">
               <div class="mb-6">
                 <input
@@ -82,6 +83,13 @@ const form = ref({
                     authStore.errors.password[0]
                   }}</span>
                 </div>
+                <div v-if="authStore.authMsg" class="flex">
+                  <span  class="text-red-700 text-xl mx-auto m-2 p-2">{{
+                      authStore.authMsg.suspend
+                    }}
+
+                  </span>
+                </div>
               </div>
               <div class="mb-10">
                 <button
@@ -120,6 +128,7 @@ const form = ref({
           </div>
         </div>
       </div>
+
     </div>
   </section>
 </template>

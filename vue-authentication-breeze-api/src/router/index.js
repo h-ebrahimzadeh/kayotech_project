@@ -24,6 +24,11 @@ const routes = [
     name: "ResetPassword",
     component: () => import("../components/ResetPassword.vue"),
   },
+  {
+    path: "/admin-users",
+    name: "AdminUsers",
+    component: () => import("../components/adminUsers.vue"),
+  },
 ];
 
 const router = createRouter({

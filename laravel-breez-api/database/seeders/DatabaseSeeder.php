@@ -34,11 +34,13 @@ class DatabaseSeeder extends Seeder
         Permission::create(['name' => 'deactive users']);
 
 
-
+        Role::create(['name' => 'user']);
         $roleAdmin = Role::create(['name' => 'admin']);
         $roleAdmin->givePermissionTo([
             'edit users',
-            'active users'
+            'active users',
+            'delete users',
+            'deactive users',
         ]);
 
 
@@ -46,27 +48,27 @@ class DatabaseSeeder extends Seeder
         // gets all permissions via Gate::before rule; see AuthServiceProvider
 
         // create demo users
-        $user = \App\Models\User::factory()->create([
+        $user1 = \App\Models\User::factory()->create([
             'name' => 'CustomerUser',
-            'email' => 'test@example.com',
+            'email' => 'test@a.com',
             'password' => Hash::make('12345678')
         ]);
 
 
         $user = \App\Models\User::factory()->create([
             'name' => 'ManagerUser',
-            'email' => 'manager@example.com',
+            'email' => 'manager@a.com',
             'password' => Hash::make('12345678'),
             'suspend' => false
         ]);
-        $user->assignRole($roleAdmin);
+        $user->assignRole('admin');
 
         $user = \App\Models\User::factory()->create([
             'name' => 'Super-Admin',
-            'email' => 'superadmin@example.com',
+            'email' => 'superadmin@a.com',
             'password' => Hash::make('12345678'),
             'suspend' => false
         ]);
-        $user->assignRole($roleSuperAdmin);
+        $user->assignRole('Super-Admin');
     }
 }
