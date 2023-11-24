@@ -29,6 +29,11 @@ const routes = [
     name: "AdminUsers",
     component: () => import("../components/adminUsers.vue"),
   },
+  {
+    path: "/profile-user",
+    name: "ProfileUser",
+    component: () => import("../components/Profile.vue"),
+  },
 ];
 
 const router = createRouter({

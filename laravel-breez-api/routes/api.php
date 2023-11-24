@@ -25,7 +25,10 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     ]);
 });
 
+Route::group(['middleware'=>'auth:sanctum'],function (){
+    Route::put('/user/update', [UserController::class, 'update'])->name('user.update');
 
+});
 Route::group(['middleware' => ['auth:sanctum', 'role:admin|Super-Admin']], function () {
     Route::group([
         'prefix' => 'admin',
@@ -34,5 +37,6 @@ Route::group(['middleware' => ['auth:sanctum', 'role:admin|Super-Admin']], funct
         Route::get('/users', [UserController::class, 'index'])->name('users');
         Route::put('/user/suspend/{user}', [UserController::class, 'suspend'])->name('user.suspend');
         Route::put('/user/unsuspend/{user}', [UserController::class, 'unsuspend'])->name('user.unsuspend');
+
     });
 });

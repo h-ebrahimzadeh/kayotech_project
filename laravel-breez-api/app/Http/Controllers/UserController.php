@@ -51,9 +51,20 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $user=User::find($request->input('id'));
+        $path = date('Y/m/d');
+        $imageName = time().'-'.'image'.'.'.$request->image->extension();
+
+        $user->addMedia($path)->toMediaCollection('images');
+
+        $user->update($request->only('name','email',));
+
+        return response()->json(['msg'=>'update user successfully']);
+
+
+
     }
 
     /**
