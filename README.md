@@ -1,8 +1,8 @@
 # kayotech_project
 
-the app is 2 part backend,forntend
-backend url: localhost:8000
-frontend url: localhost:3000
+the app is 2 part backend,forntend<br>
+backend url: localhost:8000<br>
+frontend url: localhost:3000<br>
 
 commands for run backend in folder laravel-breez-api:
 composer install 
