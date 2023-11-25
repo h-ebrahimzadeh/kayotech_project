@@ -15,6 +15,6 @@ php artisan serve<br>
 commands for run frontend in folder vue-authentication-breeze-api:<br>
 npm install <br>
 npm run dev<br>
-
+<br>
 user admin: manager@a.com<br>
-password: 12345678
+password: 12345678<br>
