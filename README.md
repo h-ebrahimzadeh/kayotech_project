@@ -16,5 +16,5 @@ commands for run frontend in folder vue-authentication-breeze-api:<br>
 npm install <br>
 npm run dev<br>
 
-user admin: manager@a.com
+user admin: manager@a.com<br>
 password: 12345678
